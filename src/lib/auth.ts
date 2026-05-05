@@ -3,29 +3,13 @@ import jwt from "jsonwebtoken";
 
 const JWT_SECRET = process.env.JWT_SECRET || "fallback_secret";
 
-export interface AuthPayload {
-  userId: string;
-  role: "Admin" | "Member";
-}
+export interface AuthPayload { userId: string; role: "Admin" | "Member"; }
 
 export async function verifyAuth(): Promise<AuthPayload | null> {
-  const headersList = await headers();
-  const authHeader = headersList.get("authorization");
-
-  if (!authHeader || !authHeader.startsWith("Bearer ")) {
-    return null;
-  }
-
-  const token = authHeader.split(" ")[1];
-
-  try {
-    const decoded = jwt.verify(token, JWT_SECRET) as AuthPayload;
-    return decoded;
-  } catch (error) {
-    return null;
-  }
+  const authHeader = (await headers()).get("authorization");
+  if (!authHeader?.startsWith("Bearer ")) return null;
+  try { return jwt.verify(authHeader.split(" ")[1], JWT_SECRET) as AuthPayload; }
+  catch { return null; }
 }
 
-export function isAdmin(payload: AuthPayload | null): boolean {
-  return payload?.role === "Admin";
-}
+export const isAdmin = (p: AuthPayload | null) => p?.role === "Admin";

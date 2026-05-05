@@ -28,7 +28,12 @@ body {
   line-height: 1.6;
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   font-weight: 700;
   letter-spacing: -0.01em;
   color: var(--foreground);
@@ -389,7 +394,9 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 @keyframes spin {
-  to { transform: rotate(360deg); }
+  to {
+    transform: rotate(360deg);
+  }
 }
 
 /* Modal Styles */
@@ -410,8 +417,13 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 @keyframes fadeIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
 }
 
 .modal-content {
@@ -466,9 +478,9 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .empty-state {
-  padding: 5rem; 
-  text-align: center; 
-  border: 1px dashed var(--border); 
+  padding: 5rem;
+  text-align: center;
+  border: 1px dashed var(--border);
   border-radius: var(--radius);
   color: var(--muted-foreground);
   background-color: #ffffff;
@@ -482,6 +494,13 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 @keyframes slideUp {
-  from { transform: translateY(20px); opacity: 0; }
-  to { transform: translateY(0); opacity: 1; }
+  from {
+    transform: translateY(20px);
+    opacity: 0;
+  }
+
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
 }
