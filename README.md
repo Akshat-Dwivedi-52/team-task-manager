@@ -41,7 +41,7 @@ A state-of-the-art, full-stack workflow orchestration platform engineered with *
 
 1. **Clone the repository**:
    ```bash
-   git clone <repository-url>
+   git clone https://github.com/Akshat-Dwivedi-52/team-task-manager
    cd team-task-manager
    ```
 
